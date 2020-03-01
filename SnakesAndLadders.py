@@ -1,3 +1,6 @@
+import random
+
+
 class SnakesLadders():
 
     def __init__(self, p1_position=0, p2_position=0, p1_turn=True, player_has_won=False):
@@ -5,16 +8,6 @@ class SnakesLadders():
         self.p2_position = p2_position
         self.p1_turn = p1_turn
         self.player_has_won = player_has_won
-
-    def __repr__(self):
-        if self.p1_turn:
-            turn = "player 1"
-        else:
-            turn = "player 2"
-
-        return f'''Turn: {turn}
-Player 1 is on square {self.p1_position}
-player 2 is on square {self.p2_position}'''
 
     def play(self, die1, die2):
 
@@ -51,3 +44,10 @@ player 2 is on square {self.p2_position}'''
                 if self.player_has_won:
                     return f'Player 2 Wins!'
                 return f'Player 2 is on square {self.p2_position}'
+
+
+game = SnakesLadders()
+
+while True:
+    input("Press Enter to Roll Die")
+    print(game.play(random.randint(1, 6), random.randint(1, 6)))
